@@ -66,6 +66,7 @@ var Elena = React.createClass({
   mixins: [MapboxGLMap.Mixin],
   getInitialState() {
     return {
+      statusText: 'Click the image of the artist to get started.',
       center: {
         latitude: 37.768704,
         longitude: -122.489285
@@ -85,10 +86,12 @@ var Elena = React.createClass({
   },
 
   onRightAnnotationTapped(e) {
+    this.setState({ statusText: 'Elena is thinking...' });
     AudioRecorder.startRecording();
     setTimeout(function() {
+      this.setState({ statusText: 'Sorry, Elena is stumped on this one.' });
       AudioRecorder.stopRecording();
-    }, 9000)
+    }.bind(this), 9000)
   },
 
   componentDidUpdate: function() {
@@ -107,7 +110,7 @@ var Elena = React.createClass({
     return (
       <View style={styles.container}>
         <Text style={styles.text} onPress={this.play}>
-          Click the image of the artist to get started.
+          {this.state.statusText}
         </Text>
         <MapboxGLMap
           style={styles.map}
