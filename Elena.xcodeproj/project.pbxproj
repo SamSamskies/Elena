@@ -22,6 +22,8 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		277AB5431B52378400DE1117 /* AudioPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AB53F1B52378400DE1117 /* AudioPlayerManager.m */; };
+		277AB5441B52378400DE1117 /* AudioRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 277AB5401B52378400DE1117 /* AudioRecorderManager.m */; };
 		27D10CE31B51DAB0007BD66D /* libRCTMapboxGL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D10CDA1B51DA68007BD66D /* libRCTMapboxGL.a */; };
 		27D10CE51B51DB00007BD66D /* MapboxGL.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27D10CE41B51DB00007BD66D /* MapboxGL.bundle */; };
 		27D10CE71B51DB20007BD66D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 27D10CE61B51DB20007BD66D /* Settings.bundle */; };
@@ -151,6 +153,10 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = iOS/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = iOS/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		277AB53F1B52378400DE1117 /* AudioPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerManager.m; path = "node_modules/react-native-audio/AudioPlayerManager.m"; sourceTree = "<group>"; };
+		277AB5401B52378400DE1117 /* AudioRecorderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioRecorderManager.m; path = "node_modules/react-native-audio/AudioRecorderManager.m"; sourceTree = "<group>"; };
+		277AB5411B52378400DE1117 /* AudioPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayerManager.h; path = "node_modules/react-native-audio/AudioPlayerManager.h"; sourceTree = "<group>"; };
+		277AB5421B52378400DE1117 /* AudioRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioRecorderManager.h; path = "node_modules/react-native-audio/AudioRecorderManager.h"; sourceTree = "<group>"; };
 		27D10CD01B51DA68007BD66D /* RCTMapboxGL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTMapboxGL.xcodeproj; path = "node_modules/react-native-mapbox-gl/RCTMapboxGL.xcodeproj"; sourceTree = "<group>"; };
 		27D10CE41B51DB00007BD66D /* MapboxGL.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = MapboxGL.bundle; path = "node_modules/react-native-mapbox-gl/RCTMapboxGL/MapboxGL.bundle"; sourceTree = "<group>"; };
 		27D10CE61B51DB20007BD66D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = "node_modules/react-native-mapbox-gl/RCTMapboxGL/Settings.bundle"; sourceTree = "<group>"; };
@@ -346,6 +352,10 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				277AB53F1B52378400DE1117 /* AudioPlayerManager.m */,
+				277AB5401B52378400DE1117 /* AudioRecorderManager.m */,
+				277AB5411B52378400DE1117 /* AudioPlayerManager.h */,
+				277AB5421B52378400DE1117 /* AudioRecorderManager.h */,
 				27D10CF81B51DBBB007BD66D /* libz.dylib */,
 				27D10CF61B51DBB1007BD66D /* libsqlite3.dylib */,
 				27D10CF41B51DBA7007BD66D /* libc++.dylib */,
@@ -615,8 +625,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				277AB5441B52378400DE1117 /* AudioRecorderManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				277AB5431B52378400DE1117 /* AudioPlayerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

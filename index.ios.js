@@ -5,6 +5,7 @@
 'use strict';
 
 var React = require('react-native');
+var {AudioRecorder, AudioPlayer} = require('react-native-audio');
 var MapboxGLMap = require('react-native-mapbox-gl');
 var mapRef = 'mapRef';
 var {
@@ -78,30 +79,36 @@ var Elena = React.createClass({
       ]
     };
   },
+
   onRegionChange(location) {
     this.setState({ currentZoom: location.zoom });
   },
-  onRegionWillChange(location) {
-    console.log(location);
-  },
-  onUpdateUserLocation(location) {
-    console.log(location);
-  },
-  onOpenAnnotation(annotation) {
-    console.log(annotation);
-  },
+
   onRightAnnotationTapped(e) {
-    console.log(e);
+    AudioRecorder.startRecording();
+    setTimeout(function() {
+      AudioRecorder.stopRecording();
+    }, 9000)
   },
+
   componentDidUpdate: function() {
+    AudioRecorder.prepareRecordingAtPath('/test.caf');
     setTimeout(function() {
       this.selectAnnotationAnimated(mapRef, 0);
     }.bind(this), 1000);
   },
+
+  play: function() {
+    AudioRecorder.playRecording();
+  },
+
   render: function() {
     StatusBarIOS.setHidden(true);
     return (
       <View style={styles.container}>
+        <Text style={styles.text} onPress={this.play}>
+          Click the image of the artist to get started.
+        </Text>
         <MapboxGLMap
           style={styles.map}
           direction={0}
@@ -116,11 +123,8 @@ var Elena = React.createClass({
           userLocationVisible={true}
           zoomLevel={this.state.zoom}
           onRegionChange={this.onRegionChange}
-          onRegionWillChange={this.onRegionWillChange}
           annotations={this.state.annotations}
-          onOpenAnnotation={this.onOpenAnnotation}
-          onRightAnnotationTapped={this.onRightAnnotationTapped}
-          onUpdateUserLocation={this.onUpdateUserLocation} />
+          onRightAnnotationTapped={this.onRightAnnotationTapped} />
       </View>
     );
   }
@@ -135,7 +139,8 @@ var styles = StyleSheet.create({
     flex: 5
   },
   text: {
-    padding: 2
+    padding: 4,
+    textAlign: 'center'
   }
 });
 
